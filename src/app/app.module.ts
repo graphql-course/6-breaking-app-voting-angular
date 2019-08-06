@@ -8,13 +8,19 @@ import { GraphqlModule } from './@core/modules/graphql/graphql.module';
 import { CharactersComponent } from './@pages/characters/characters.component';
 import { VotesComponent } from './@pages/votes/votes.component';
 import { CardComponent } from './@core/components/card/card.component';
+import { TruncatePipe } from './@core/pipes/truncate.pipe';
+import { LoadingComponent } from './@core/components/loading/loading.component';
+import { NavbarComponent } from './@core/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharactersComponent,
     VotesComponent,
-    CardComponent
+    CardComponent,
+    TruncatePipe,
+    LoadingComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -9,10 +9,15 @@ import { Character } from 'src/app/@core/interfaces/character.interface';
 })
 export class CharactersComponent implements OnInit {
   character: Character[] = [];
+  loading: boolean;
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getCharacters(false).subscribe((data) => this.character = data);
+    this.loading = true;
+    this.api.getCharacters(false).subscribe((data) => {
+      this.character = data;
+      this.loading = false;
+    });
   }
 
 }
