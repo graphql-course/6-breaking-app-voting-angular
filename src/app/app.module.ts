@@ -11,7 +11,8 @@ import { CardComponent } from './@core/components/card/card.component';
 import { TruncatePipe } from './@core/pipes/truncate.pipe';
 import { LoadingComponent } from './@core/components/loading/loading.component';
 import { NavbarComponent } from './@core/components/navbar/navbar.component';
-
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './@core/components/bar-chart/bar-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +21,15 @@ import { NavbarComponent } from './@core/components/navbar/navbar.component';
     CardComponent,
     TruncatePipe,
     LoadingComponent,
-    NavbarComponent
+    NavbarComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GraphqlModule
+    GraphqlModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
