@@ -32,7 +32,7 @@ export class BarChartComponent implements OnInit, OnChanges {
 
   public colors = [
     {
-      backgroundColor: '#7ea2a8'
+      backgroundColor: '#17a2b8'
     }
   ];
 
@@ -43,6 +43,7 @@ export class BarChartComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: any) {
     console.log(this.characters);
+    this.characters = changes.characters.currentValue;
     this.loadChartData();
   }
 
@@ -55,28 +56,6 @@ export class BarChartComponent implements OnInit, OnChanges {
       this.barChartLabels.push(item.name);
       this.barChartData[0].data.push(item.votes);
     });
-  }
-
-  // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public randomize(): void {
-    // Only Change 3 values
-    const data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-    this.barChartData[0].data = data;
   }
 
 }
