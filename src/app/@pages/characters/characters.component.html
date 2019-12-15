@@ -3,7 +3,7 @@
 </h1>
 <app-loading *ngIf="loading"></app-loading>
 <div class="row" *ngIf="!loading">
-    <div class="col-lg-4" *ngFor="let c of character">
+    <div class="col-lg-4" *ngFor="let c of data | async | select: 'characters'">
         <app-card [character]="c"></app-card>
     </div>
 </div>

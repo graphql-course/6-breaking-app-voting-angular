@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { listaPersonajes } from '../operations/query';
-import { map } from 'rxjs/operators';
 import { changeVotes } from '../operations/subscription';
 import { addVoteOperation } from '../operations/mutation';
 @Injectable({
@@ -21,10 +20,10 @@ export class ApiService {
         },
         fetchPolicy: 'network-only'
       }
-    ).valueChanges.pipe(map((result: any) => {
-      console.log(result.data);
+    ).valueChanges;
+    /*.pipe(map((result: any) => {
       return result.data.characters;
-    }));
+    }));*/
   }
 
   // Obtener los cambios en tiempo real de los votos

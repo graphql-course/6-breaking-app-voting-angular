@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/@core/interfaces/character.interface';
 import { ApiService } from 'src/app/@core/services/api.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-votes',
@@ -9,16 +10,19 @@ import { ApiService } from 'src/app/@core/services/api.service';
 })
 export class VotesComponent implements OnInit {
   characters: Character[] = [];
+  
   loading: boolean;
+  data: Observable<any>;
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.loading = true;
-    this.apiService.getCharacters(true).subscribe((data) => {
+    this.loading = false;
+    this.data = this.apiService.getCharacters(true);
+    /*this.apiService.getCharacters(true).subscribe((data) => {
       this.characters = data;
       console.log(this.characters);
       this.loading = false;
-    });
+    });*/
     this.changeVotes();
   }
 
