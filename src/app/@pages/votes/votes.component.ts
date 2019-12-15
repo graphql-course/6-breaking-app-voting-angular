@@ -16,13 +16,7 @@ export class VotesComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.loading = false;
     this.data = this.apiService.getCharacters(true);
-    /*this.apiService.getCharacters(true).subscribe((data) => {
-      this.characters = data;
-      console.log(this.characters);
-      this.loading = false;
-    });*/
     this.changeVotes();
   }
 
