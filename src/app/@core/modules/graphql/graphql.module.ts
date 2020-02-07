@@ -18,13 +18,13 @@ export class GraphqlModule {
 
     // Configurar la url principal con el link
     const httpLink = new HttpLink(httpClient).create({
-      uri: 'http://localhost:5012/graphql'
+      uri: 'https://breaking-bad-voting.herokuapp.com/graphql'
     });
 
     // Configura el wbesocket con el link
 
     const subscriptionLink = new WebSocketLink({
-      uri: 'ws://localhost:5012/graphql',
+      uri: 'wss://breaking-bad-voting.herokuapp.com/graphql',
       options: {
         reconnect: true
       }
