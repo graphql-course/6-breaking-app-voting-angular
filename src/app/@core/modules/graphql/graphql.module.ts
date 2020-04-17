@@ -18,13 +18,13 @@ export class GraphqlModule {
 
     // Configurar la url principal con el link
     const httpLink = new HttpLink(httpClient).create({
-      uri: 'https://breaking-bad-voting.herokuapp.com/graphql'
+      uri: 'https://breaking-bad-voting-graphql.herokuapp.com/graphql'
     });
 
     // Configura el wbesocket con el link
 
     const subscriptionLink = new WebSocketLink({
-      uri: 'wss://breaking-bad-voting.herokuapp.com/graphql',
+      uri: 'wss://breaking-bad-voting-graphql.herokuapp.com/graphql',
       options: {
         reconnect: true
       }
@@ -32,7 +32,7 @@ export class GraphqlModule {
     // Unir las dos conexiones
     const link = split(
       ({ query }) => {
-        const { kind, operation } = getMainDefinition(query);
+        const { kind, operation }: any = getMainDefinition(query);
         return kind === 'OperationDefinition' && operation === 'subscription';
       },
       subscriptionLink,

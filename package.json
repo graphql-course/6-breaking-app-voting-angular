@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prod": "ng build --prod --base-href=\"./\"" 
   },
   "private": true,
   "dependencies": {
@@ -25,7 +26,7 @@
     "apollo-client": "^2.6.3",
     "apollo-link-ws": "^1.0.18",
     "chart.js": "^2.8.0",
-    "graphql": "^14.4.2",
+    "graphql": "^14.6.0",
     "graphql-tag": "^2.10.1",
     "ng2-charts": "^2.3.0",
     "rxjs": "~6.5.4",
